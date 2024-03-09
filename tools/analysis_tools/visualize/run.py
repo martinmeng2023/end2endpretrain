@@ -19,7 +19,7 @@ from PIL import Image
 from tools.analysis_tools.visualize.utils import color_mapping, AgentPredictionData
 from tools.analysis_tools.visualize.render.bev_render import BEVRender
 from tools.analysis_tools.visualize.render.cam_render import CameraRender
-
+import sys
 
 class Visualizer:
     """
@@ -209,6 +209,7 @@ class Visualizer:
             prediction_dict[token] = dict(predicted_agent_list=predicted_agent_list,
                                           predicted_map_seg=predicted_map_seg,
                                           predicted_planning=planning_agent)
+        print('Loaded predictions ', len(prediction_dict))
         return prediction_dict
 
     def visualize_bev(self, sample_token, out_filename, t=None):
